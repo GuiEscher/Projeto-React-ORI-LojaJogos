@@ -8,16 +8,37 @@ import Three3D from './Componentes/Three3D';
 function App() {
   const backgroundImageUrl = 'https://i.pinimg.com/564x/80/fc/42/80fc425ea9d40075c8846d498ca5b551.jpg'
   const divStyle = {
-    backgroundImage: `url(${backgroundImageUrl})`,
+    //backgroundImage: `url(${backgroundImageUrl})`,
+    backgroundColor: 'black',
+    height: '10vh', //- 50%
+    width: '100vw', //- 100%
+    //left
+    //right
+    //display: 'flex',
+    //justifyContent: 'center',
+    //alignItems: 'center',
+
+  };
+
+  const divStyle2 = {
+    //backgroundImage: `url(${backgroundImageUrl})`,
+    height: '30vh',
+    width: '50vw',
+    backgroundColor: '#00ff7f',
+    display: 'flex',
+    flexDirection: 'column'
   };
 
   return (
     <div className="App" style={Object.assign({}, divStyle)}>
       <header className="App-header">
         <TituloSite/>
-        <Three3D/>
-        <tagCloudd/>
       </header>
+      <div> 
+
+      <Three3D/>
+
+      </div>
     </div>
   );
 }

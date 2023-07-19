@@ -64,7 +64,17 @@ const Three3D = () => {
     animate(); // Inicia a animação
   }, []);
 
-  return <div ref={sceneRef} style={{ width: '100vw', height: '100vh' }} />;
+  return <div className='Three3DContainer' ref={sceneRef} /*style={{ 
+    width: '10vw', 
+    height: '50vh',
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center',
+    right: '50vw',
+    backgroundColor:'black', 
+  
+  
+  }}*/ />;
 };
 
 export default Three3D;

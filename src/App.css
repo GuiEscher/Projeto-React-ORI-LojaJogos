@@ -6,19 +6,20 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 0s linear; /* faz a logo girar*/
   }
 }
 
 .App-header {
   /*background-color: #d66cbc;*/
-  min-height: 100vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 5;
 }
 
 .App-link {
@@ -41,5 +42,14 @@
   background-size: cover;
   text-align: center;
 }
-
+/* Definindo uma classe para o contêiner do Three3D */
+.Three3DContainer {
+  width: 10vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  margin: 0 auto; /* Isso irá centralizar horizontalmente o conteúdo */
+}
 
