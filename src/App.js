@@ -1,49 +1,46 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import TituloSite from './Componentes/Estilos';
 import logo from './logo.svg';
 import tagCloudd from './Componentes/TagCloudd'
 import Three3D from './Componentes/Three3D';
+import Nav from './Componentes/Nav';
+import Main from './Componentes/Main';
 
 function App() {
-  const backgroundImageUrl = 'https://i.pinimg.com/564x/80/fc/42/80fc425ea9d40075c8846d498ca5b551.jpg'
-  const divStyle = {
-    //backgroundImage: `url(${backgroundImageUrl})`,
-    backgroundColor: 'black',
-    height: '10vh', //- 50%
-    width: '100vw', //- 100%
-    //left
-    //right
-    //display: 'flex',
-    //justifyContent: 'center',
-    //alignItems: 'center',
 
-  };
-
-  const divStyle2 = {
-    //backgroundImage: `url(${backgroundImageUrl})`,
-    height: '30vh',
-    width: '50vw',
-    backgroundColor: '#00ff7f',
-    display: 'flex',
-    flexDirection: 'column'
-  };
 
   return (
-    <div className="App" style={Object.assign({}, divStyle)}>
-      <header className="App-header">
-        <TituloSite/>
-      </header>
-      <div> 
-
-      <Three3D/>
-
+    <div className='outerWrap'>
+      <div className="App">
+          <Nav/>
+          <Main/>
+      </div>
+      <div className='gameControls'>
+        game controls
       </div>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*<img src={logo} className="App-logo" alt="logo" />*/
 
 /* texto link

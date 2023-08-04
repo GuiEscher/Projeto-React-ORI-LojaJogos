@@ -1,0 +1,423 @@
+
+$greyDark: #9391c5;
+$greyLight: #1a191b;
+$greyLighter: #2e2d30;
+$greyText: #b3b3b3;
+$greyNav: #232336;
+$greenMain: #1db954;
+
+//$greyDark: #a99df7;
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.smallText {
+  font-size: 0.75rem;
+  letter-spacing: 0.8px;
+  &.bold {
+    font-weight: 600;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: circular-book;
+}
+
+.subText {
+  font-size: 0.9rem;
+  color: $greyText;
+}
+
+.App {
+  height: calc(100vh - 90px);
+  background: $greyLight;
+  display: flex;
+}
+
+.navBar {
+  width: 260px;
+  height: 100%;
+  background: $greyDark;
+  padding: 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  .logo {
+    padding: 1rem 0.8rem;
+
+    svg {
+      max-width: 130px;
+      p {
+        fill: white;
+      }
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:visited {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+    li {
+      color: $greyText;
+      list-style-type: none;
+      border-radius: 5px;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      font-family: circular-bold;
+      display: flex;
+      align-items: center;
+
+      svg {
+        fill: currentColor;
+        margin-right: 15px;
+      }
+      &.active {
+        background: $greyLighter;
+        color: white;
+        svg {
+          fill: white;
+        }
+      }
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .cookies {
+    font-size: 0.6rem;
+    color: $greyText;
+    text-align: center;
+    margin-top: auto;
+    padding: 1rem;
+    span {
+      display: block;
+    }
+  }
+}
+
+.outerWrap {
+  background: grey;
+  height: 100vh;
+  min-height: 100%;
+}
+
+.gameControls {
+  background: $greyLighter;
+  text-align: center;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 2;
+  position: relative;
+  border-top: 1px solid $greyDark;
+}
+
+.upperNav {
+  background: rgba(9, 9, 9, 0.78);
+  height: 56px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0.5rem 2rem;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.main {
+  width: 100%;
+  overflow-y: scroll;
+  position: relative;
+  padding-top: 3.4rem;
+  .mainContent {
+    color: white;
+
+    .mainInner {
+      padding: 0.5rem 2rem;
+    }
+    h1,
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.cardsWrap {
+  padding-bottom: 0.8rem;
+  h2 {
+    margin-bottom: 0;
+  }
+  .cardsWrapInner {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+  .subText {
+    margin-top: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .card {
+    background: $greyLighter;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1.2rem;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    &:hover {
+      .playIcon {
+        opacity: 1;
+      }
+    }
+    .cardImage {
+      height: 160px;
+      box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3),
+        0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .cardContent {
+      padding: 0.4rem 0;
+      h3 {
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        letter-spacing: 0.6px;
+      }
+      span {
+        font-size: 0.8rem;
+        color: $greyText;
+      }
+    }
+  }
+}
+
+.playIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  background: $greenMain;
+  margin-left: auto;
+  opacity: 0;
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  svg {
+    margin: auto;
+  }
+}
+
+.playlistPage {
+  background-color: rgb(214, 214, 214);
+  .mainInner {
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 0.5)),
+      color-stop(40%, #121212)
+    );
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), #121212 40%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .playlistPageInfo {
+    // width: 300px;
+    text-align: center;
+    padding: 1.5rem 0;
+    display: flex;
+    .playlistPageImage {
+      width: 250px;
+      height: 250px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        -webkit-box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+  .playlistPageSongs {
+    height: 100%;
+    .playlistButtons {
+      display: flex;
+      align-items: center;
+    }
+    .playIcon {
+      @extend .playIcon;
+      opacity: 1;
+      position: relative;
+      margin-left: 0;
+      height: 56px;
+      width: 56px;
+      right: 0;
+      bottom: 0;
+      svg {
+        height: 26px;
+        width: 26px;
+      }
+    }
+    .icons {
+      .icon {
+        margin-left: 1.5rem;
+      }
+      .iconsHeart {
+        width: 28px;
+        height: 28px;
+        svg {
+          fill: white;
+        }
+      }
+    }
+  }
+  .playlistPageContent {
+    text-align: left;
+    padding: 1.5rem 2rem;
+    h1 {
+      font-size: 7rem;
+      margin: 0;
+      line-height: 1;
+      font-family: circular-black;
+      word-spacing: -18px;
+      letter-spacing: -6px;
+    }
+    .tagline {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+    }
+    .playlistPageDesc {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      p {
+        margin: 0;
+      }
+      span {
+        opacity: 0.7;
+        position: relative;
+        padding-left: 20px;
+        &:before {
+          content: '';
+          width: 4px;
+          height: 4px;
+          background: white;
+          overflow: hidden;
+          border-radius: 50%;
+          position: absolute;
+          margin-left: -10px;
+          top: 9px;
+        }
+      }
+    }
+  }
+}
+
+ul.songList {
+  padding: 0;
+  li {
+    list-style-type: none;
+    width: 100%;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s ease-in-out;
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      .songIcon {
+        .noteI {
+          display: none;
+        }
+        .playI {
+          display: block;
+        }
+      }
+    }
+    .songDetails {
+      h3 {
+        margin: 0;
+        font-weight: 300;
+        font-size: 1rem;
+      }
+      span {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+    }
+    .songTime {
+      margin-left: auto;
+    }
+    .songIcon {
+      padding-right: 1rem;
+      .playI {
+        display: none;
+      }
+      svg {
+        fill: rgba(255, 255, 255, 0.7);
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 200px;
+  }
+  
+  .cardImage img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+
+  }
+  
+  .cardContent h3 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  
+  .cardContent p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  
+
+}
