@@ -1,29 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
-import TituloSite from './Componentes/Estilos';
-import logo from './logo.svg';
-import tagCloudd from './Componentes/TagCloudd'
-import Three3D from './Componentes/Three3D';
 import Nav from './Componentes/Nav';
 import Main from './Componentes/Main';
 
 function App() {
+  const [selectedGame, setSelectedGame] = useState(null);
+  const [showMessage, setShowMessage] = useState(true);
 
+  const handleGameClick = (jogo) => {
+    setSelectedGame(jogo);
+    setShowMessage(false); // Esconde a mensagem após clicar em um jogo
+  };
 
   return (
     <div className='outerWrap'>
       <div className="App">
-          <Nav/>
-          <Main/>
+        <Nav />
+        <Main onGameClick={handleGameClick} />
       </div>
       <div className='gameControls'>
-        game controls
+        {showMessage ? (
+          <React.Fragment>
+            <h2 style={{ margin: '150px', textShadow: '1px 1px #9391c5', fontWeight: '500' }}>Just a click</h2>
+            <img src={selectedGame?.imagem} style={{ width: '100px', height: '70px', marginRight: '10px' }} alt={selectedGame?.nome} />
+          </React.Fragment>
+        ) : (
+          selectedGame && (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px', overflow: 'hidden', position: 'fixed' }}>
+              <img src={selectedGame.imagem} style={{ width: '100px', height: '70px', marginRight: '10px' }} alt={selectedGame.nome} />
+              <h2 style={{ margin: '150px', textShadow: '1px 1px #9391c5', fontWeight: '500' }}>{selectedGame.nome}</h2>
+              <button style={{ padding: '10px 25px', borderRadius: '5px', backgroundColor: '#9391c5', border: '2px solid #ccc', color: 'white', fontWeight: 'bold', cursor: 'pointer', textShadow: '1px 1px #555', boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)' }}>Buy Game</button>
+            </div>
+          )
+        )}
       </div>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

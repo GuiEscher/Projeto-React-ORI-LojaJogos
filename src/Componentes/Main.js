@@ -1,35 +1,78 @@
-// Main.js
+// Main.js - principal área da loja. Contém os jogos em mostruário.
+
 import React, { useState } from 'react';
 import jogosData from '../Arquivos/Jogos';
 import diacritics from 'diacritics';
 import searchIcon from '../images/super-mario.png';
+import Checkbox from './CheckBox';
+import JogosGen from '../Arquivos/JogosGen';
 
-const Main = () => {
+const Main = ({ onGameClick }) => {
+  // Estado para armazenar o termo de busca
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Estado para armazenar a lista de jogos filtrados
   const [filteredJogos, setFilteredJogos] = useState(jogosData.jogos);
+
+  // Estado para armazenar o ano de lançamento selecionado
   const [anoLancamento, setAnoLancamento] = useState('');
 
+  // genero Está marcado?
+  const [isGenChecked, setIsGenChecked] = useState(false);
+
+  // Nome está marcado?
+  const [isNameChecked, setIsNameChecked] = useState(false);
+
+  const [FilteredGen, setFilteredGen] = useState(JogosGen.JogosGen)
+
+
+  // Manipulador de evento para alteração do campo de busca
   const handleSearchChange = (event) => {
     const termoBusca = event.target.value;
     setSearchTerm(termoBusca);
     filtrarJogos(termoBusca);
   };
 
+  // Função para filtrar os jogos com base no termo de busca
   const filtrarJogos = (termo) => {
-    const termosBusca = diacritics.remove(termo.toLowerCase()).split(/\s+/);
-    const jogosFiltrados = jogosData.jogos.filter((jogo) =>
-      termosBusca.every((termo) => diacritics.remove(jogo.nome.toLowerCase()).includes(termo))
+    const termosBusca = diacritics.remove(termo.toLowerCase()).split(/\s+/); //ignora acento e letra maiuscula
+    if(isGenChecked){
+      const generoFiltro = JogosGen.JogosGen.filter((JogosGen) => 
+      
+      termosBusca.every((termo) => diacritics.remove(JogosGen.Genero.toLowerCase()).includes(termo))
+      
     );
-    setFilteredJogos(jogosFiltrados);
+    setFilteredGen(generoFiltro);
+    }
+    //pesquisa por nome
+    else if(isNameChecked){
+      const jogosFiltrados = jogosData.jogos.filter((jogo) =>
+      termosBusca.every((termo) => diacritics.remove(jogo.nome.toLowerCase()).includes(termo))
+      );
+      setFilteredJogos(jogosFiltrados);
+    }
   };
 
+  // Manipulador de evento para quando um jogo é clicado
   const handleSearchClick = (id) => {
     const jogo = jogosData.jogos.find((jogo) => jogo.id === id);
     if (jogo) {
       return;
     } else {
-      setAnoLancamento('Jogo não encontrado');
+      // por uma imagem de not found.
     }
+  };
+
+  // verificar se o checkbox do gênero está marcado
+  const handleCheckGen = (event) => {
+    setIsGenChecked(event.target.checked);
+    setIsNameChecked(false);
+  };
+
+  // verificar se o checkbox do nome está marcado
+  const handleCheckName = (event) => {
+    setIsNameChecked(event.target.checked);
+    setIsGenChecked(false);
   };
 
   return (
@@ -37,7 +80,7 @@ const Main = () => {
       <div className="upperNav">Evil owl game shop</div>
       <div className="mainContent">
         <h1 style={{ padding: 10, textShadow: '1.5px 1.5px #9391c5', fontWeight: 'bold' }}>
-          Encontre os melhores jogos recomendados de 2023
+          Discover the best recommended games of 2023.        
         </h1>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <input
@@ -81,27 +124,63 @@ const Main = () => {
           >
             Pesquisar
           </button>
+          <label style={{
+
+            textShadow: '1px 1px #9391c5',  
+
+          }}> 
+            <input
+              
+              type = "radio"
+              checked = {isGenChecked}
+              onChange={handleCheckGen}
+              
+              />
+            Gênero
+          </label>
+          <label style={{
+
+            textShadow: '1px 1px #9391c5',  
+
+          }}>
+            <input
+              
+              type = "radio"
+              checked = {isNameChecked}
+              onChange={handleCheckName}
+              
+              />
+            Nome
+          </label>
+
+         
+          
+
         </div>
         <div className='cardswrap' style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
           {filteredJogos.map((jogo) => (
-            <div className='card' key={jogo.id} style={{ flexBasis: '30%', marginBottom: '20px' }}>
+            <div
+              className='card'
+              key={jogo.id}
+              style={{ flexBasis: '30%', marginBottom: '20px', cursor: 'pointer' }}
+              onClick={() => onGameClick(jogo)}
+            >
               <div className='cardImage'>
-                <h1 style={{ marginTop: '15px', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)', fontSize: '20px', margin: 0, padding: 10 }}>{jogo.nome}</h1>
-                <img src={jogo.imagem} style={{ width: '350px', height: '250px', padding: 10 }} alt={jogo.nome} />
+                <h1 style={{ marginTop: 10, textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)', fontSize: '20px', margin: 0, padding: 10 }}>{jogo.nome}</h1>
+                <img src={jogo.imagem} style={{ width: '320px', height: '250px', padding: 10 }} alt={jogo.nome} />
                 <img src={jogo.Classificaçãoindicativa} style={{ width: '50px', height: '50px', padding: 10 }} alt={`Classificação ${jogo.Classificaçãoindicativa}`} />
               </div>
               <div className='cardContent'>
-                <p style={{ fontSize: '15px', padding: 5, fontWeight: '600' }}>Year of Release: {jogo.anoLancamento}</p>
+                <p style={{ fontSize: '15px', padding: 5, fontWeight: '600' }}>Gênero: {jogo.Genero}</p>
               </div>
             </div>
           ))}
         </div>
         <div>
-          {anoLancamento}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Main;

@@ -1,6 +1,11 @@
 import React from 'react';
 import logoImage from '../images/coruja2.png'; // Substitua "nome_da_sua_logo.png" pelo caminho correto da imagem
 
+  const ToGitHub = () => {
+    window.open('https://github.com/GuiEscher/Projeto-React-ORI', '_blank'); // Abre em uma nova guia
+  };
+
+
 const Nav = () => {
   return (
     <div className="navBar">
@@ -9,8 +14,12 @@ const Nav = () => {
       </div>
       <ul>
         <li className="active">Home</li>
-        <li>Search</li>
         <li>Your library</li>
+        <li
+        onClick={ToGitHub}
+      >
+        About us
+      </li>
       </ul>
       <div className="cookies">
         <span>Cookies</span>
