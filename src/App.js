@@ -4,21 +4,12 @@ import Nav from './Componentes/Nav';
 import Main from './Componentes/Main';
 import fantasma from '../src/images/ghost.png'
 import Home from './Componentes/Home';
+import AppRouter from './Componentes/AppRouter';
 
 function App() {
-  const [selectedGame, setSelectedGame] = useState(null);
-  const [showMessage, setShowMessage] = useState(true);
-
-  const handleGameClick = (jogo) => {
-
-    // fazer a busca primaria aqui ja que jogo traz o jogo selecionado
-
-    setSelectedGame(jogo);
-    setShowMessage(false); // Esconde a mensagem após clicar em um jogo
-  };
 
   return (
-    <Home/>
+    <AppRouter/>
   );
 }
 
