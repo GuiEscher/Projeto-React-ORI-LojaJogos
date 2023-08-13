@@ -175,7 +175,7 @@ const Main = ({ onGameClick }) => {
             >
               <div className='cardImage'>
                 <h1 style={{ marginTop: 10, textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)', fontFamily: 'Arial', fontSize: '20px', margin: 0, padding: 10 }}>{jogo.nome}</h1>
-                <img src={jogo.imagem} style={{ width: '640px', height: '410px', padding: 10 }} alt={jogo.nome} />
+                <img src={jogo.imagem} style={{ width: '37vw', height: '43vh', padding: 10 }} alt={jogo.nome} />
                 <img src={jogo.Classificaçãoindicativa} style={{ width: '50px', height: '50px', padding: 10 }} alt={`Classificação ${jogo.Classificaçãoindicativa}`} />
               </div>
               <div className='cardContent'>
