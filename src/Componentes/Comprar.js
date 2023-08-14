@@ -6,13 +6,13 @@ import ReactPlayer from "react-player";
 import { useLocation } from "react-router-dom"; //recebe prop de outra rota
 
 function Comprar() {
-    const videoUrl = "https://www.youtube.com/watch?v=wOEHUANP-vo&t=16s";
 
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState("");
     const sliderRef = useRef(null);
     const location = useLocation();
-    const selectedGame = location.state?.jogoSelecionado;
+    const selectedGame = location.state?.jogoSelecionado; // recebe a prop vinda do onClick
+    const videoUrl = selectedGame.video;
 
     const openModal = (image) => {
         if(!modalOpen){
@@ -90,7 +90,7 @@ function Comprar() {
     };
 
     const containerStyle = {
-        background: "#2e2d30",
+        background: "#1a191b",
         minHeight: "100vh",
         width: "100%",
         display: "flex",
@@ -117,6 +117,7 @@ function Comprar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        
     };
 
     const imageStyle = {
@@ -148,78 +149,17 @@ function Comprar() {
                 <ReactPlayer url={videoUrl} playing controls width="640px" height="360px" />
             </div>
             <div style={sliderContainerStyle}>
-                <Slider ref={sliderRef} {...sliderSettings}>
-                    <div
-                        style={imageContainerStyle}
-                        onClick={() =>
-                            openModal(
-                                "https://th.bing.com/th/id/OIP.iRhiJUSODDIa59jiOBG7YQHaEK?pid=ImgDet&rs=1"
-                            )
-                        }
-                    >
-                        <img
-                            src="https://th.bing.com/th/id/OIP.iRhiJUSODDIa59jiOBG7YQHaEK?pid=ImgDet&rs=1"
-                            alt="Lute!"
-                            style={imageStyle}
-                        />
-                    </div>
-                    <div
-                        style={imageContainerStyle}
-                        onClick={() =>
-                            openModal(
-                                "https://th.bing.com/th/id/OIP.Vwdb-Lvif9zxsFTm4Yl2qwHaEo?pid=ImgDet&rs=1"
-                            )
-                        }
-                    >
-                        <img
-                            src="https://th.bing.com/th/id/OIP.Vwdb-Lvif9zxsFTm4Yl2qwHaEo?pid=ImgDet&rs=1"
-                            alt="Encare!"
-                            style={imageStyle}
-                        />
-                    </div>
-                    <div
-                        style={imageContainerStyle}
-                        onClick={() =>
-                            openModal(
-                                "https://th.bing.com/th/id/R.d8a202de894e2b42c8eafc1e921f0d3f?rik=iqd2J6QtRYI5KA&pid=ImgRaw&r=0"
-                            )
-                        }
-                    >
-                        <img
-                            src="https://th.bing.com/th/id/R.d8a202de894e2b42c8eafc1e921f0d3f?rik=iqd2J6QtRYI5KA&pid=ImgRaw&r=0"
-                            alt="Encare!"
-                            style={imageStyle}
-                        />
-                    </div>
-                    <div
-                        style={imageContainerStyle}
-                        onClick={() =>
-                            openModal(
-                                "https://th.bing.com/th/id/R.d8a202de894e2b42c8eafc1e921f0d3f?rik=iqd2J6QtRYI5KA&pid=ImgRaw&r=0"
-                            )
-                        }
-                    >
-                        <img
-                            src="https://th.bing.com/th/id/R.d8a202de894e2b42c8eafc1e921f0d3f?rik=iqd2J6QtRYI5KA&pid=ImgRaw&r=0"
-                            alt="Encare!"
-                            style={imageStyle}
-                        />
-                    </div>
-                    <div
-                        style={imageContainerStyle}
-                        onClick={() =>
-                            openModal(
-                                "https://cdn1.dotesports.com/wp-content/uploads/2022/02/01205504/c7d86e64a1539e6a593d2de2d03ae530.jpg"
-                            )
-                        }
-                    >
-                        <img
-                            src="https://cdn1.dotesports.com/wp-content/uploads/2022/02/01205504/c7d86e64a1539e6a593d2de2d03ae530.jpg"
-                            alt="Encare!"
-                            style={imageStyle}
-                        />
-                    </div>
-                </Slider>
+            <Slider ref={sliderRef} {...sliderSettings}>
+                {selectedGame.imagensSlider.map((imagem, index) => (
+                 <div
+                    key={index}
+                    style={imageContainerStyle}
+                    onClick={() => openModal(imagem)}
+                >
+                <img src={imagem} alt={`Imagem ${index}`} style={imageStyle} />
+                </div>
+            ))}
+            </Slider>
             </div>
             {modalOpen && (
                 <div
@@ -244,6 +184,55 @@ function Comprar() {
                     />
                 </div>
             )}
+            <div style={{
+                background:'#2e2d30',
+                padding: '40px',
+                marginLeft:'25px',
+                marginRight:'25px',
+                marginTop:'25px',
+                border: '15px solid #333',
+                borderRadius:'10px'
+
+            }}>
+                <h1 style={{
+                        color:"white",
+                        fontWeight:'500',
+                        fontSize:'3.7vh',
+                        marginBottom:'20px',
+                        padding: '20px'
+                    }}>
+                        
+                        Descrição<br/>
+                        
+                </h1>
+
+                    <p style={{
+                        color:"white",
+                        fontWeight:'500',
+                        fontSize:'2.8vh',
+                        padding: '15px',
+
+                    }}>{selectedGame.desc}</p>
+
+
+            <button 
+                style={{ 
+                    padding: '10px 25px', 
+                    borderRadius: '5px', 
+                    backgroundColor: '#9391c5', 
+                    border: '2px solid #ccc', 
+                    color: 'white', 
+                    fontWeight: 'bold', 
+                    cursor: 'pointer', 
+                    textShadow: '1px 1px #555', 
+                    boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)' 
+                    }}>
+                        
+                        finalizar compra
+                    
+                 </button>
+
+            </div>
         </div>
     );
 }
