@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ReactPlayer from "react-player";
+import { useLocation } from "react-router-dom"; //recebe prop de outra rota
 
 function Comprar() {
     const videoUrl = "https://www.youtube.com/watch?v=wOEHUANP-vo&t=16s";
@@ -10,6 +11,8 @@ function Comprar() {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState("");
     const sliderRef = useRef(null);
+    const location = useLocation();
+    const selectedGame = location.state?.jogoSelecionado;
 
     const openModal = (image) => {
         if(!modalOpen){
@@ -138,7 +141,9 @@ function Comprar() {
 
     return (
         <div style={containerStyle}>
-            <h1 style={{ fontWeight: "bold", color: "white" }}>Nome do jogo</h1>
+            {selectedGame && (
+            <h1 style={{ fontWeight: "bold", color: "white" }}>{selectedGame.nome}</h1>
+        )}
             <div style={videoContainerStyle}>
                 <ReactPlayer url={videoUrl} playing controls width="640px" height="360px" />
             </div>

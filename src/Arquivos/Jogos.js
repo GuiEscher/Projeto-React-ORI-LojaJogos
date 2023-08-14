@@ -26,35 +26,53 @@ const jogosData = {
       nome: "Final Fantasy 7 Remake",
       Genero: "RPG",
       Classificaçãoindicativa: doze,
-      imagem: "https://www.siliconera.com/wp-content/uploads/2020/04/final-fantasy-7-remake-avatars-final-fantasy-vii-remake-avatars.jpg?fit=859%2C483"
+      imagem: "https://www.siliconera.com/wp-content/uploads/2020/04/final-fantasy-7-remake-avatars-final-fantasy-vii-remake-avatars.jpg?fit=859%2C483",
+      imagensSlider: [
+        "https://th.bing.com/th/id/OIP.iRhiJUSODDIa59jiOBG7YQHaEK?pid=ImgDet&rs=1",
+        "https://th.bing.com/th/id/OIP.Vwdb-Lvif9zxsFTm4Yl2qwHaEo?pid=ImgDet&rs=1",
+        "https://th.bing.com/th/id/R.d8a202de894e2b42c8eafc1e921f0d3f?rik=iqd2J6QtRYI5KA&pid=ImgRaw&r=0",
+        "https://cdn1.dotesports.com/wp-content/uploads/2022/02/01205504/c7d86e64a1539e6a593d2de2d03ae530.jpg",
+      ]
     },
     {
       id: "3",
       nome: "Super Mario Bros - 3DS Version",
       Genero: "Aventura",
       Classificaçãoindicativa: Livre,
-      imagem: "https://images-americanas.b2w.io/produtos/01/00/img/3082394/9/3082394903_1GG.jpg"
+      imagem: "https://images-americanas.b2w.io/produtos/01/00/img/3082394/9/3082394903_1GG.jpg",
+      imagensSlider: [
+
+      ]
     },
     {
       id: "4",
       nome: "The Witcher 3",
       Genero: "RPG",
       Classificaçãoindicativa: dezesseis,
-      imagem: "https://cdn1.epicgames.com/offer/14ee004dadc142faaaece5a6270fb628/EGS_TheWitcher3WildHuntCompleteEdition_CDPROJEKTRED_S1_2560x1440-82eb5cf8f725e329d3194920c0c0b64f"
+      imagem: "https://cdn1.epicgames.com/offer/14ee004dadc142faaaece5a6270fb628/EGS_TheWitcher3WildHuntCompleteEdition_CDPROJEKTRED_S1_2560x1440-82eb5cf8f725e329d3194920c0c0b64f",
+      imagensSlider: [
+
+      ]
     },
     {
       id: "5",
       nome: "Resident Evil 8 - Village",
       Genero: "Terror",
       Classificaçãoindicativa: dezesseis,
-      imagem: "https://www.residentevil.com/village/assets/images/common/share.png"
+      imagem: "https://www.residentevil.com/village/assets/images/common/share.png",
+      imagensSlider: [
+
+      ]
     },
     {
       id: "6",
       nome: "Rimworld",
       Genero: "Sobrevivência",
       Classificaçãoindicativa: dezesseis,
-      imagem: "https://th.bing.com/th/id/OIP.1zIUHZgrtrFR3E0meQ2YSwHaEK?pid=ImgDet&rs=1"
+      imagem: "https://th.bing.com/th/id/OIP.1zIUHZgrtrFR3E0meQ2YSwHaEK?pid=ImgDet&rs=1",
+      imagensSlider: [
+
+      ]
     }
   ]
 };

@@ -2,19 +2,33 @@ import React, { useState } from 'react';
 import Nav from '../Componentes/Nav';
 import Main from '../Componentes/Main';
 import fantasma from '../images/ghost.png'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import jogosData from '../Arquivos/Jogos';
+import { BrowserRouter as Router, Route, Switch, Link, useNavigate } from 'react-router-dom';
+
+
 function Home() {
    
     const [selectedGame, setSelectedGame] = useState(null);
     const [showMessage, setShowMessage] = useState(true);
+    const navigate = useNavigate();
+    
   
-    const handleGameClick = (jogo) => {
+    const handleGameClick = (jogoClicado) => { // jogo = Jogo clicado na tela main
+      
+      //busca primária pega o id do jogo passado no parametro e busca-o no arquivo
+      const jogoEncontrado = jogosData.jogos.find((jogo) => jogo.id === jogoClicado.id)
   
-      // fazer a busca primaria aqui ja que jogo traz o jogo selecionado
-  
-      setSelectedGame(jogo);
+      setSelectedGame(jogoEncontrado); // jogoEncontrado = selectedGame
       setShowMessage(false); // Esconde a mensagem após clicar em um jogo
+
+      console.log( "JOGO SELECIONADO:" + JSON.stringify(jogoEncontrado));
+      console.log("(jogo.id -> jogoClicado.id " + jogoEncontrado.id + " " +  jogoClicado.id);
+      
+      
+
     };
+
+    
   
     return (
       <div className='outerWrap'>
@@ -36,8 +50,9 @@ function Home() {
 
 
                 
-            <Link to = "/comprar">
+               
                 <button 
+                onClick={() => navigate('/comprar', { state: { jogoSelecionado: selectedGame } })}
                 style={{ 
                     padding: '10px 25px', 
                     borderRadius: '5px', 
@@ -53,7 +68,7 @@ function Home() {
                         Compre agora!
                     
                     </button>
-                </Link> 
+                
               </div>
             )
           )}
