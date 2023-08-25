@@ -30,6 +30,38 @@ const JogosId = {
     {
         nome: "Rimworld",
         id: "6"
+    },
+    {
+        nome: "Valheim",
+        id: "7"
+    },
+    {
+        nome: "Factorio",
+        id: "8"
+    },
+    {
+        nome: "Little Nightmares",
+        id: "9"
+    },
+    {
+        nome: "Stray",
+        id: "10"
+    },
+    {
+        nome: "Terraria",
+        id: "11"
+    },
+    {
+        nome: "Dragon Age: Origins",
+        id: "12"
+    },
+    {
+        nome: "Counter-Strike: Global Offensive",
+        id: "13"
+    },
+    {
+        nome: "Team Fortress 2",
+        id: "14"
     }
     ]
 }

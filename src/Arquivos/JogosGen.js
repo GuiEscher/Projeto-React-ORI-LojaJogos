@@ -30,8 +30,40 @@ const JogosGen = {
         id: "5"
     },
     {
-        Genero: "Sobrevivência",
+        Genero: "Simulação",
         id: "6"
+    },
+    {
+        Genero: "Sobrevivência",
+        id: "7"
+    },
+    {
+        Genero: "Simulação",
+        id: "8"
+    },
+    {
+        Genero: "Terror",
+        id: "9"
+    },
+    {
+        Genero: "Aventura",
+        id: "10"
+    },
+    {
+        Genero: "Sobrevivência",
+        id: "11"
+    },
+    {
+        Genero: "RPG",
+        id: "12"
+    },
+    {
+        Genero: "FPS",
+        id: "13"
+    },
+    {
+        Genero: "FPS",
+        id: "14"
     }
     ]
 }

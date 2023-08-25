@@ -31,21 +31,28 @@ const Main = ({ onGameClick }) => {
   };
 
   // Função para filtrar os jogos com base no termo de busca
+
+  
   const filtrarJogos = (termo) => {
-    const termosBusca = diacritics.remove(termo.toLowerCase()).split(/\s+/); //ignora acento e letra maiuscula
+    const termosBusca = (termo.toLowerCase()).split(/\s+/); //ignora letra maiuscula - Está vindo tudo minusculo
+    //console.log(termosBusca + " Teste termos busca");
 
     // Busca no índice secundário de generos
     if(isGenChecked){
+      
       // Buscamos no índice secundário o id de todos os jogos daquele gênero
       const id_filtrados = JogosGen.JogosGen.filter(jogo => termosBusca.every(termo => diacritics.remove(jogo.Genero.toLowerCase()).includes(termo)))
       .map(jogo => jogo.id);
 
+      console.log("ids: " + id_filtrados); //Os ids estão vindo corretamente
+
       // Agora usamos esse vetor de ids para buscar no arquivo principal
-    
+      
       const jogosFiltrados = jogosData.jogos.filter((jogo) =>
-      id_filtrados.some((id_filtrado) => diacritics.remove(jogo.id.toLowerCase()).includes(id_filtrado)
-      ) )
-      setFilteredJogos(jogosFiltrados);
+        id_filtrados.includes(jogo.id) // faz a filtragem do jogo => pega os ids_filtrados e compara com jogo.id, retornando em jogosFiltrados as equivalências.
+      ) 
+      setFilteredJogos(jogosFiltrados); 
+      console.log(jogosFiltrados + " os ids batem com os jogos?");
        
     }
 
