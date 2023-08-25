@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Nav from '../Componentes/Nav';
 import Main from '../Componentes/Main';
 import fantasma from '../images/ghost.png'
-import jogosData from '../Arquivos/Jogos';
+import jogosData from '../Arquivos/Jogos.json';
 import { BrowserRouter as Router, Route, Switch, Link, useNavigate } from 'react-router-dom';
 
 
@@ -13,12 +13,12 @@ function Home() {
     const navigate = useNavigate();
     
   
-    const handleGameClick = (jogoClicado) => { // jogo = Jogo clicado na tela main
+    const handleGameClick = (jogoClicado) => { // JogoClicado = Objeto do jogo clicando que vem do Main.js
       
       //busca primária pega o id do jogo passado no parametro e busca-o no arquivo
       const jogoEncontrado = jogosData.jogos.find((jogo) => jogo.id === jogoClicado.id)
   
-      setSelectedGame(jogoEncontrado); // jogoEncontrado = selectedGame
+      setSelectedGame(jogoClicado); // jogoEncontrado = selectedGame
       setShowMessage(false); // Esconde a mensagem após clicar em um jogo
 
       console.log( "JOGO SELECIONADO:" + JSON.stringify(jogoEncontrado));

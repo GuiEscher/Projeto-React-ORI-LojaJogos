@@ -1,7 +1,7 @@
 // Main.js - principal área da loja. Contém os jogos em mostruário.
 
 import React, { useState } from 'react';
-import jogosData from '../Arquivos/Jogos';
+import jogosData from '../Arquivos/Jogos.json';
 import diacritics from 'diacritics';
 import searchIcon from '../images/super-mario.png';
 import Checkbox from './CheckBox';
@@ -121,24 +121,6 @@ const Main = ({ onGameClick }) => {
               width: '70%', // Aumenta o comprimento do input
             }}
           />
-          <button
-            onClick={() => handleSearchClick(filteredJogos[0]?.id)}
-            style={{
-              padding: '10px 20px',
-              fontSize: '16px',
-              borderRadius: '5px',
-              backgroundColor: '#9391c5',
-              border: '2px solid #ccc',
-              color: 'white',
-              fontWeight: 'bold',
-              marginLeft: '10px',
-              cursor: 'pointer',
-              textShadow: '1px 1px #555',
-              boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)',
-            }}
-          >
-            Pesquisar
-          </button>
           <label style={{
 
             textShadow: '1px 1px #9391c5',  
