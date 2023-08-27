@@ -12,7 +12,7 @@ function FormRegistro({ onRegister }) {
     <div>
       <h2 style={{
         color: 'white',
-        fontSize: '2vh',
+        fontSize: '4vh',
         fontWeight: ' bold ',
         textAlign: ' center ',
         textShadow: '1.5px 1.5px #9391c5',
@@ -23,11 +23,14 @@ function FormRegistro({ onRegister }) {
         value={username}
         onChange={e => setUsername(e.target.value)}
         style={{
-          marginLeft:'20px',
-          borderRadius: '5px',
           color: 'white', // Cor do texto
           backgroundColor: 'black', // Cor da caixa de texto
           borderColor: '#9391c5', 
+          marginBottom: '15px',
+          fontSize: '20px',
+          borderRadius:'10px',
+          borderWidth:'5px',
+          padding:'5px'
           
         }}
       />
@@ -40,14 +43,18 @@ function FormRegistro({ onRegister }) {
           color: 'white', // Cor do texto
           backgroundColor: 'black', // Cor da caixa de texto
           borderColor: '#9391c5', 
-          marginBottom: '15px'
+          marginBottom: '15px',
+          fontSize: '20px',
+          borderRadius:'10px',
+          borderWidth:'5px',
+          padding:'5px'
   
           }}
       />
       <button 
        style={{
         padding: '10px 15px',
-        fontSize: '10px',
+        fontSize: '15px',
         borderRadius: '5px',
         backgroundColor: '#9391c5',
         border: '2px solid #ccc',

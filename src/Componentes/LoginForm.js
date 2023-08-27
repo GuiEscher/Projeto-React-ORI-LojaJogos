@@ -7,9 +7,6 @@ function LoginForm({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // const handleLogin = async () => {
-  //   onLogin({ username, password });
-  // };
 
   const handleLoginNavigate =  async() => {
    
@@ -30,21 +27,18 @@ function LoginForm({ onLogin }) {
         }
 
         }
-      
-      
       catch(err){
       console.log('deu erro')
     }finally{
       //console.log('funcionou')
     }
-    
    
   }
 
   return (
-    <div>
+    <div >
       <h2 style={{color: 'white',
-        fontSize: '2vh',
+        fontSize: '4vh',
         fontWeight: ' bold ',
         textAlign: ' center ',
         textShadow: '1.5px 1.5px #9391c5',
@@ -55,12 +49,14 @@ function LoginForm({ onLogin }) {
         value={username}
         onChange={e => setUsername(e.target.value)}
         style={{
-          marginLeft:'20px',
-          borderRadius: '5px',
           color: 'white', // Cor do texto
           backgroundColor: 'black', // Cor da caixa de texto
           borderColor: '#9391c5', 
-          
+          marginBottom: '15px',
+          fontSize: '20px',
+          borderRadius:'10px',
+          borderWidth:'5px',
+          padding:'5px'
         }}
       />
       <input
@@ -69,17 +65,21 @@ function LoginForm({ onLogin }) {
         value={password}
         onChange={e => setPassword(e.target.value)}
         style={{
-        color: 'white', // Cor do texto
-        backgroundColor: 'black', // Cor da caixa de texto
-        borderColor: '#9391c5', 
-        marginBottom: '15px'
+          color: 'white', // Cor do texto
+          backgroundColor: 'black', // Cor da caixa de texto
+          borderColor: '#9391c5', 
+          marginBottom: '15px',
+          fontSize: '20px',
+          borderRadius:'10px',
+          borderWidth:'5px',
+          padding:'5px'
 
         }}
       />
       <button 
         style={{
           padding: '10px 15px',
-          fontSize: '10px',
+          fontSize: '15px',
           borderRadius: '5px',
           backgroundColor: '#9391c5',
           border: '2px solid #ccc',

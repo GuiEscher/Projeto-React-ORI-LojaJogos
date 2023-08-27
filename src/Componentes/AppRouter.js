@@ -4,6 +4,7 @@ import Home from './Home';
 import Comprar from './Comprar';
 import InitialScreen from './InitialScreen';
 import SplashScreen from './SplashScreen';
+import Pagar from './Pagar';
 
 const AppRouter = () => {
   return (
@@ -13,6 +14,7 @@ const AppRouter = () => {
         <Route path="/splash" element={<SplashScreen />} />  
         <Route path="/home" element={<Home />} />
         <Route path="/comprar" element={<Comprar />} />
+        <Route path="/pagar" element={<Pagar/>} />
       </Routes>
     </Router>
   );

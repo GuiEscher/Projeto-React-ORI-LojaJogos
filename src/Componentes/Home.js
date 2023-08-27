@@ -14,11 +14,10 @@ function Home() {
     
   
     const handleGameClick = (jogoClicado) => { // JogoClicado = Objeto do jogo clicando que vem do Main.js
-      
-      //busca primária pega o id do jogo passado no parametro e busca-o no arquivo
+
       const jogoEncontrado = jogosData.jogos.find((jogo) => jogo.id === jogoClicado.id)
   
-      setSelectedGame(jogoClicado); // jogoEncontrado = selectedGame
+      setSelectedGame(jogoEncontrado); // jogoClicado = selectedGame 
       setShowMessage(false); // Esconde a mensagem após clicar em um jogo
 
       console.log( "JOGO SELECIONADO:" + JSON.stringify(jogoEncontrado));

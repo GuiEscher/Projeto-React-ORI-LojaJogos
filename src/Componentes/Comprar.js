@@ -4,9 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ReactPlayer from "react-player";
 import { useLocation } from "react-router-dom"; //recebe prop de outra rota
+import { useNavigate } from 'react-router-dom';
 
 function Comprar() {
-
+    const navigate = useNavigate();
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState("");
     const sliderRef = useRef(null);
@@ -226,7 +227,10 @@ function Comprar() {
                     cursor: 'pointer', 
                     textShadow: '1px 1px #555', 
                     boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)' 
-                    }}>
+                    }}
+                    onClick={() => navigate('/pagar')}
+                    
+                    >
                         
                         finalizar compra
                     
