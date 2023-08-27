@@ -27,8 +27,6 @@ function Home() {
 
     };
 
-    
-  
     return (
       <div className='outerWrap'>
         <div className="App">
@@ -38,14 +36,14 @@ function Home() {
         <div className='gameControls'>
           {showMessage ? (
             <React.Fragment>
-            <h2 style={{ margin: '150px', textShadow: '1px 1px #9391c5', fontWeight: '500' }}>Selecione um jogo :D</h2>
+            <h2 style={{ margin: '150px', textShadow: '1px 1px #9391c5', fontWeight: '500', fontFamily: 'Arial' }}>Selecione um jogo :D</h2>
             <img src={fantasma} style={{ width: '100px', height: '70px', marginRight: '10px' }} alt={selectedGame?.nome} />
           </React.Fragment>
           ) : (
             selectedGame && (
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px', overflow: 'hidden', position: 'fixed' }}>
                 <img src={selectedGame.imagem} style={{ width: '100px', height: '70px', marginRight: '10px' }} alt={selectedGame.nome} />
-                <h2 style={{ margin: '150px', textShadow: '1px 1px #9391c5', fontWeight: '500' }}>{selectedGame.nome}</h2>
+                <h2 style={{ margin: '150px', textShadow: '1px 1px #9391c5', fontWeight: '500', fontFamily: 'Arial' }}>{selectedGame.nome}</h2>
 
 
                 

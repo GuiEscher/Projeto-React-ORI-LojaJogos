@@ -144,7 +144,7 @@ function Comprar() {
     return (
         <div style={containerStyle}>
             {selectedGame && (
-            <h1 style={{ fontWeight: "bold", color: "white" }}>{selectedGame.nome}</h1>
+            <h1 style={{ fontWeight: "bold", color: "white", fontFamily: 'Arial' }}>{selectedGame.nome}</h1>
         )}
             <div style={videoContainerStyle}>
                 <ReactPlayer url={videoUrl} playing controls width="640px" height="360px" />
@@ -212,6 +212,7 @@ function Comprar() {
                         fontWeight:'500',
                         fontSize:'2.8vh',
                         padding: '15px',
+                        fontFamily: 'Arial'
 
                     }}>{selectedGame.desc}</p>
 

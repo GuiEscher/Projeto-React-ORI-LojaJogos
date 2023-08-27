@@ -22,7 +22,8 @@ function Pagar() {
     }}> <h1 style={{
         padding: '1px',
         marginBottom:'50vh',
-        right:'25px'
+        right:'25px',
+        fontFamily: 'Arial'
     }}>Insira suas credenciais... </h1>
       <div style={{
         display: 'flex',

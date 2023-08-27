@@ -40,6 +40,7 @@ function SplashScreen() {
         fontSize: '5vh',
         color: 'white',
         textShadow: '1px 1px #9391c5',
+        fontFamily: 'Arial'
       }}
     >
       <MovingComponent

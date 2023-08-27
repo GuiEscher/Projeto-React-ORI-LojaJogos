@@ -55,7 +55,8 @@ function App() {
         marginLeft: ' 2vw',
         borderRadius: '15px',
         height:'50vh',
-        textAlign:'center'
+        textAlign:'center',
+        fontFamily: 'Arial'
     }}>
       <h1 style={{
         color: 'white',
@@ -63,7 +64,8 @@ function App() {
         fontWeight: ' bold ',
         textAlign: ' center ',
         textShadow: '1.5px 1.5px #9391c5',
-        margin:'9vh'
+        margin:'9vh',
+        fontFamily: 'Arial'
       }}>
        
 
@@ -77,7 +79,10 @@ function App() {
 
       <RegisterForm onRegister={handleRegister} />
       <LoginForm onLogin={handleLogin} />
-      <p>{message}</p>
+      <p style={{
+        color:'white',
+        fontFamily: 'Arial'
+      }}>{message}</p>
 
     </div> 
   

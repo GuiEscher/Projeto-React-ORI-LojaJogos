@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import jogosData from '../Arquivos/Jogos.json';
 import diacritics from 'diacritics';
 import searchIcon from '../images/super-mario.png';
-import Checkbox from './CheckBox';
 import JogosGen from '../Arquivos/JogosGen';
 
 const Main = ({ onGameClick }) => {
@@ -22,7 +21,6 @@ const Main = ({ onGameClick }) => {
 
   const [FilteredGen, setFilteredGen] = useState(JogosGen.JogosGen)
 
-
   // Manipulador de evento para alteração do campo de busca
   const handleSearchChange = (event) => {
     const termoBusca = event.target.value;
@@ -30,9 +28,8 @@ const Main = ({ onGameClick }) => {
     filtrarJogos(termoBusca);
   };
 
-  // Função para filtrar os jogos com base no termo de busca
 
-  
+  // Função para filtrar os jogos com base no termo de busca
   const filtrarJogos = (termo) => {
     const termosBusca = (termo.toLowerCase()).split(/\s+/); //ignora letra maiuscula - Está vindo tudo minusculo
     //console.log(termosBusca + " Teste termos busca");
@@ -94,7 +91,7 @@ const Main = ({ onGameClick }) => {
       
       </div>
       <div className="mainContent">
-        <h1 style={{ padding: 10, textShadow: '1.5px 1.5px #9391c5', fontWeight: 'bold', textAlign: 'center' }}>
+        <h1 style={{ padding: 10, textShadow: '1.5px 1.5px #9391c5', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Arial' }}>
           Os melhores jogos do mercado a alguns cliques de distância!!    
         </h1>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -119,6 +116,7 @@ const Main = ({ onGameClick }) => {
               fontWeight: '400',
               textShadow: '1px 1px #9391c5', // Contorno roxo
               width: '70%', // Aumenta o comprimento do input
+              fontFamily: 'Arial'
             }}
           />
           <label style={{
@@ -149,9 +147,6 @@ const Main = ({ onGameClick }) => {
               />
             Nome
           </label>
-
-         
-          
 
         </div>
         <div className='cardswrap' style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
