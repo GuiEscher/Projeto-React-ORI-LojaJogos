@@ -8,7 +8,7 @@ function SplashScreen() {
   const navigate = useNavigate();
 
   // Defina a duração da animação em milissegundos
-  const animationDuration = 7000; // 5 segundos
+  const animationDuration = 4000; // 5 segundos
 
   const options = {
     animationData: loadAnimation,

@@ -14,7 +14,6 @@ const Nav = () => {
       </div>
       <ul>
         <li className="active">Página Inicial</li>
-        <li>Sua Biblioteca</li>
         <li
         onClick={ToGitHub}
       >

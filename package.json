@@ -17,6 +17,7 @@
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-moving-text": "^0.0.7",
     "react-player": "^2.12.0",
     "react-router-dom": "^6.14.2",

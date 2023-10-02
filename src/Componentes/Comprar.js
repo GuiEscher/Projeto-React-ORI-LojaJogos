@@ -97,6 +97,7 @@ function Comprar() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        overflow:'hidden'
     };
 
     const videoContainerStyle = {
@@ -192,7 +193,8 @@ function Comprar() {
                 marginRight:'25px',
                 marginTop:'25px',
                 border: '15px solid #333',
-                borderRadius:'10px'
+                borderRadius:'10px',
+                marginBottom:'30px'
 
             }}>
                 <h1 style={{

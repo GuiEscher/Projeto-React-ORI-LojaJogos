@@ -99,7 +99,7 @@ const Main = ({ onGameClick }) => {
             type="text"
             value={searchTerm}
             onChange={handleSearchChange}
-            placeholder="Pesquisa..."
+            placeholder="Pesquisa... Busque um gênero ou nome"
             style={{
               padding: '10px',
               fontSize: '19px',
